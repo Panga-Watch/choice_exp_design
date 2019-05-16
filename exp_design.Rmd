@@ -1,0 +1,18 @@
+---
+title: "Choice Experiment Design"
+author: "Gage Clawson"
+date: "5/16/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(AlgDesign)
+```
+
+```{r}
+ffd <- gen.factorial(c(2,2,4), varNames = c("IA", "Safety", "IIU"), factors = "all")
+```
+
+

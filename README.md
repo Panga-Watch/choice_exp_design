@@ -13,4 +13,4 @@ There is no data source for this script.
  
 **Methods:**
 
-All R code used to generate our data can be found in "exp_design.Rmd". 
+All R code used to generate our design can be found in "exp_design.Rmd". 

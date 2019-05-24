@@ -15,12 +15,12 @@ Reference: https://pdfs.semanticscholar.org/b0fb/05e51e02d4eda914888ae0590dd65b4
 
 Step 1: create full factorial design
 ```{r}
-ffd <- gen.factorial(c(2,3,3), varNames = c("SOS", "info", "IUU"), factors = "all") # construct a full factorial design which has two 3 level attributes and one 2 level attribute. factors = "all" indicates that all arguments are factors
+ffd <- gen.factorial(c(2,2,3), varNames = c("SOS", "info", "own"), factors = "all") # construct a full factorial design which has two 2 level attributes and one 3 level attribute. factors = "all" indicates that all arguments are factors
 ffd
 
 #SOS: 1 = No, 2 = Yes
-#info: 1 = Anon/available to everyone, 2 = anon/available to GFW, 3 = open to everyone
-#IUU: 1 = 50%, 2 = 20%, 3 = 0%
+#info: 1 = non-anon/available to everyone, 2 = anon/available to everyone
+#own: 1 = Public access, 2 = Industry, 3 = Government
 ```
 Step 3 (step 2 is skipped): Make copies of full factorial design
 ```{r}
@@ -31,11 +31,13 @@ alt2 <- alt1 #save a copy of alt1 as alt2 so we can randomize
 Step 4: Create choice sets by using random selection without replacement
 ```{r}
 #add a uniform random number to alt1 
-alt1 <- transform(alt1, r1 = runif(18))
+set.seed(5)
+alt1 <- transform(alt1, r1 = runif(12))
 alt1
 
 #do the same to alt2
-alt2 <- transform(alt2, r2=runif(18))
+set.seed(6)
+alt2 <- transform(alt2, r2=runif(12))
 alt2
 
 
@@ -46,8 +48,8 @@ alt1_sort
 alt2_sort <- alt2[order(alt2$r2), ]
 alt2_sort
 
-#write.csv(alt1_sort, "package1_design_raw")
-#write.csv(alt2_sort, "package2_design_raw")
+write.csv(alt1_sort, "package1_design_raw.csv")
+write.csv(alt2_sort, "package2_design_raw.csv")
 
 ```
 

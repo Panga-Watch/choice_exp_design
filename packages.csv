@@ -1,20 +1,14 @@
-Questions,,Package 1,,,Package 2,,,,Variable,Values
-,SOS,Info,IUU,SOS,Info,IUU,,,SOS,"No, Yes"
-1,No,Open Access,0%,No,Open Access,0%,,,Information Access,"Anonymous and available to everyone, Anonymous and available to GFW, Open Access"
-2,Yes,Open Access,20%,Yes,"anon, available to everyone",20%,,,IUU Decrease,"50%, 20%,0%"
-3,No,"anon, available to everyone",20%,No,Open Access,20%,,,Years Fishing,Numeric Value
-4,Yes,"anon, available to everyone",0%,Yes,"Anon, avaiable to GFW",20%,,,CPUE Change ,"Increase, Decrease, No Change"
-5,No,Open Access,50%,Yes,"anon, available to everyone",50%,,,Who do you sell your fish to? ,"Single buyer, Local fish market, Varies "
-6,Yes,"Anon, avaiable to GFW",50%,Yes,Open Access,50%,,,,
-7,No,Open Access,20%,No,"anon, available to everyone",20%,,,,
-8,Yes,Open Access,50%,Yes,"Anon, avaiable to GFW",50%,,,,
-9,Yes,"Anon, avaiable to GFW",0%,No,Open Access,50%,,,,
-10,No,"Anon, avaiable to GFW",20%,Yes,"anon, available to everyone",0%,,,,
-11,Yes,Open Access,0%,No,"Anon, avaiable to GFW",50%,,,,
-12,No,"anon, available to everyone",0%,Yes,"Anon, avaiable to GFW",0%,,,,
-13,No,"Anon, avaiable to GFW",0%,Yes,open Access,0%,,,,
-14,No,"Anon, avaiable to GFW",50%%,No,"anon, available to everyone",0%,,,,
-15,Yes,"Anon, avaiable to GFW",20%,No,"Anon, avaiable to GFW",50%,,,,
-16,Yes,"anon, available to everyone",50%,Yes,Open Access,20%,,,,
-17,Yes,"anon, available to everyone",20%,No,"Anon, avaiable to GFW",0%,,,,
-18,No,"anon, available to everyone",50%,No,"anon, available to everyone",50%,,,,
+Questions,,Package 1,,,Package 2,,,,Variable,Values,,
+,SOS,Info,Own,SOS,Info,Own,,,SOS,"No, Yes",,
+1,1,1,2,2,1,3,,,Information Access,"Anonymous and available to everyone, Anonymous and available to everyone",,
+2,2,1,3,1,2,1,,,Own,Pubic Access,Industry,Government
+3,1,1,1,2,2,1,,,,,,
+4,1,2,3,1,1,3,,,,,,
+5,2,2,1,1,1,1,,,,,,
+6,2,2,3,1,2,3,,,,,,
+7,1,2,2,2,2,2,,,,,,
+8,2,1,1,1,1,2,,,,,,
+9,2,1,2,2,2,3,,,,,,
+10,2,2,2,2,1,1,,,,,,
+11,1,2,1,1,2,2,,,,,,
+12,1,1,3,2,1,2,,,,,,

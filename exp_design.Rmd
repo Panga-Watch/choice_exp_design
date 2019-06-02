@@ -15,41 +15,61 @@ Reference: https://pdfs.semanticscholar.org/b0fb/05e51e02d4eda914888ae0590dd65b4
 
 Step 1: create full factorial design
 ```{r}
-ffd <- gen.factorial(c(2,2,3), varNames = c("SOS", "info", "own"), factors = "all") # construct a full factorial design which has two 2 level attributes and one 3 level attribute. factors = "all" indicates that all arguments are factors
+ffd <- gen.factorial(c(2,2,4), varNames = c("SOS", "info", "own"), factors = "all") # construct a full factorial design which has two 2 level attributes and one 4 level attribute. factors = "all" indicates that all arguments are factors
 ffd
 
 #SOS: 1 = No, 2 = Yes
-#info: 1 = non-anon/available to everyone, 2 = anon/available to everyone
-#own: 1 = Public access, 2 = Industry, 3 = Government
+#info: 1 = non-anon, 2 = anon
+#own: 1 = Fishers, 2 = Industry, 3 = Government, 4 = Public Access 
 ```
 Step 3 (step 2 is skipped): Make copies of full factorial design
 ```{r}
-alt1 <- ffd #save alt1 as our first design
-alt2 <- alt1 #save a copy of alt1 as alt2 so we can randomize
+alt1 <- ffd %>% #save alt1 as our first design
+  rename(SOS.1 = SOS, info.1 = info, own.1 = own)
+
+alt2 <- alt1 %>% #save a copy of alt1 as alt2 so we can randomize
+    rename(SOS.2 = SOS.1, info.2 = info.1, own.2 = own.1)
+alt3 <- ffd %>%
+  rename(SOS.3 = SOS, info.3 = info, own.3 = own)#saving a precautionary copy for a third alternative in case juan wants to add another option like he has suggested... 
 ```
 
 Step 4: Create choice sets by using random selection without replacement
 ```{r}
 #add a uniform random number to alt1 
 set.seed(5)
-alt1 <- transform(alt1, r1 = runif(12))
+alt1 <- transform(alt1, r1 = runif(16))
 alt1
 
 #do the same to alt2
 set.seed(6)
-alt2 <- transform(alt2, r2=runif(12))
+alt2 <- transform(alt2, r2=runif(16))
 alt2
 
+set.seed(7)
+alt3 <- transform(alt3, r3 = runif(16))
+alt3
 
 #sort each design by the random number
-alt1_sort <- alt1[order(alt1$r1), ]
-alt1_sort
+alt1_sort <- alt1[order(alt1$r1), ] 
+alt1_sort <- alt1_sort %>%
+  mutate(package = 1:16)
 
 alt2_sort <- alt2[order(alt2$r2), ]
-alt2_sort
+alt2_sort <- alt2_sort %>%
+  mutate(package = 1:16)
 
-write.csv(alt1_sort, "package1_design_raw.csv")
-write.csv(alt2_sort, "package2_design_raw.csv")
+alt3_sort <- alt3[order(alt3$r3), ]
+alt3_sort <- alt3_sort %>%
+  mutate(package = 1:16)
+
+#write.csv(alt1_sort, "package1_design_raw.csv")
+#write.csv(alt2_sort, "package2_design_raw.csv")
+#write.csv(alt3_sort, "package3_design_raw.csv")
+
+packages_all <- full_join(alt1_sort, alt2_sort)
+packages_all <- full_join(packages_all, alt3_sort)
+
+write.csv(packages_all, "all_packages.csv")
 
 ```
 
